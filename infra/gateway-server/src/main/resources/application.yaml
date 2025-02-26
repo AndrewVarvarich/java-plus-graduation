@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: gateway
+  config:
+    import: "configserver:"
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+        enabled: true
+      fail-fast: true
+      retry:
+        use-random-policy: true
+        max-interval: 6000
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+logging:
+  level:
+    org.springframework.boot.web.embedded.tomcat: DEBUG
+    org.springframework.web: DEBUG
