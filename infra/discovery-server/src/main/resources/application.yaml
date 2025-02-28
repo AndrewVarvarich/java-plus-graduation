@@ -1,6 +1,3 @@
-server:
-  port: 8761
-
 eureka:
   instance:
     hostname: localhost
@@ -12,3 +9,6 @@ eureka:
   server:
     renewal-percent-threshold: 0.85  # Разрешаем меньше обновлений
     eviction-interval-timer-in-ms: 60000  # Удалять мертвые инстансы раз в 60 секунд
+
+server:
+  port: 8761
