@@ -9,7 +9,7 @@ spring:
         native:
           searchLocations:
             - classpath:config/core/{application}
-            - classpath:config/stats/{application}
+            - classpath:config/stats/stats-server{application}
             - classpath:config/infra/{application}
 eureka:
   instance:
