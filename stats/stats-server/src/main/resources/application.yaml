@@ -1,29 +1,26 @@
+server:
+  port: 9090
+
 spring:
   application:
-    name: stats-server
+    name: ewm-stats-server
   config:
-    import: 'configserver:'
+    import: "configserver:"
   cloud:
     config:
       discovery:
-        service-id: config-server
         enabled: true
+        serviceId: config-server
       fail-fast: true
       retry:
         use-random-policy: true
-        max-interval: 6000
+        max-interval: 10000
 eureka:
-  instance:
-    hostname: localhost
-    instance-id: ${spring.application.name}:${random.value}
-    prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 30
   client:
-    service-url:
+    serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: true
-logging:
-  level:
-    org.springframework.boot.web.embedded.tomcat: DEBUG
-    org.springframework.web: DEBUG
+  instance:
+    preferIpAddress: true
+    hostname: localhost
+    instanceId: "${spring.application.name}:${server.port}"
+    leaseRenewalIntervalInSeconds: 10

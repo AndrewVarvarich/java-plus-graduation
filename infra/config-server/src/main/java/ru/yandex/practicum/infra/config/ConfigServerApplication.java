@@ -1,15 +1,14 @@
 package ru.yandex.practicum.infra.config;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
-@EnableConfigServer
 @SpringBootApplication
-public class ConfigServer {
-
+@EnableConfigServer
+public class ConfigServerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ConfigServer.class, args);
+        SpringApplication.run(ConfigServerApplication.class,args);
     }
-
 }
