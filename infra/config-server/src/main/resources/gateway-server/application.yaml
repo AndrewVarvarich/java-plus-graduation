@@ -1,0 +1,15 @@
+spring:
+  main:
+    banner-mode: off
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: ewm-main-service_route
+          uri: lb://ewm-main-service
+          predicates:
+            - Path=/**
+server:
+  port: 8080
